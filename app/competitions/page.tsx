@@ -3,21 +3,21 @@ import { BASE_URL } from "../utils/config";
 import ErrorView from "../components/ErrorView";
 
 const fetchCompetitions = async () => {
-    try {
-      const res = await fetch(`${BASE_URL}/api/competitions`, {
-        cache: "no-store",
-      });
-      if (!res.ok) throw new Error("Failed to fetch leaderboard");
-      return {
-        data: await res.json(),
-        error: null
-      };
-    } catch (error: any) {
-      return {
-        data: null,
-        error: error.message
-      };
-    }
+  try {
+    const res = await fetch(`${BASE_URL}/api/competitions`, {
+      cache: "no-store",
+    });
+    if (!res.ok) throw new Error("Failed to fetch leaderboard");
+    return {
+      data: await res.json(),
+      error: null
+    };
+  } catch (error: any) {
+    return {
+      data: null,
+      error: error.message
+    };
+  }
 };
 
 export default async function CompetitionList() {

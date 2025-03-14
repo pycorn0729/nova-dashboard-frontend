@@ -9,14 +9,14 @@ const fetchLeaderboard = async (epoch: number) => {
       throw new Error(res.statusText || "Failed to fetch leaderboard");
     }
     return {
-        data: await res.json(),
-        error: null
+			data: await res.json(),
+			error: null
     };
   } catch (error: any) {
     return {
-        data: null,
-        error: error.message
-    };
+			data: null,
+			error: error.message
+		};
   }
 };
 
