@@ -29,18 +29,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-col items-center justify-center h-screen">
-          <div className="h-20 w-full bg-gray-200 fixed top-0 left-0">
+          {/* <div className="h-15 w-full bg-dark-500 fixed top-0 left-0">
             <div className="flex items-center justify-between h-full px-10">
               <h1 className="text-2xl font-bold">NOVA Dashboard</h1>
               <div className="flex items-center justify-center gap-3">
                 <Link href="/competitions" className="text-gray-500 hover:text-gray-700 hover:underline">Competitions</Link>
               </div>
             </div>
-          </div>
-          <div className="w-full h-full pt-30">
+          </div> */}
+          <div className="w-full h-full bg-dark">
             {children}
           </div>
-          <div className="h-15 w-full bg-gray-200 fixed bottom-0 left-0">
+          <div className="h-15 w-full bg-dark-500 fixed bottom-0 left-0">
             <div className="flex items-center justify-center h-full">
                 <Link href="https://github.com/the-nova-labs" target="_blank" className="text-gray-500 hover:text-gray-700 hover:underline flex items-center gap-2">
                   <svg height="20" width="20" aria-hidden="true" viewBox="0 0 16 16" version="1.1">
