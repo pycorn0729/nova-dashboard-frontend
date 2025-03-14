@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { BASE_URL } from "../utils/config";
 
 const fetchCompetitions = async () => {
     try {
-      const res = await fetch(`http://209.126.9.130:9000/api/competitions`, {
+      const res = await fetch(`${BASE_URL}/api/competitions`, {
         cache: "no-store",
       });
       if (!res.ok) throw new Error("Failed to fetch leaderboard");
