@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BASE_URL } from "../utils/config";
+import ErrorView from "../components/ErrorView";
 
 const fetchCompetitions = async () => {
     try {
@@ -7,14 +8,24 @@ const fetchCompetitions = async () => {
         cache: "no-store",
       });
       if (!res.ok) throw new Error("Failed to fetch leaderboard");
-      return await res.json();
-    } catch (error) {
-      return [];
+      return {
+        data: await res.json(),
+        error: null
+      };
+    } catch (error: any) {
+      return {
+        data: null,
+        error: error.message
+      };
     }
 };
 
 export default async function CompetitionList() {
-  const competitions = await fetchCompetitions()
+  const {data, error} = await fetchCompetitions();
+  if (error) {
+    return <ErrorView error={error} />;
+  }
+  const competitions = data;
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
@@ -30,7 +41,7 @@ export default async function CompetitionList() {
                 <p className="text-lg font-semibold text-gray-700">
                   Epoch {comp.epoch_number}
                 </p>
-                <p className="text-sm text-gray-500">Challenge ID: {comp.challenge_id}</p>
+                <p className="text-sm text-gray-500">Protein: {comp.protein}</p>
               </div>
               <Link
                 href={`/leaderboard?epoch_number=${comp.epoch_number}`}
