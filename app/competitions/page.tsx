@@ -41,7 +41,8 @@ export default async function CompetitionList() {
                 <p className="text-lg font-semibold text-gray-700">
                   Epoch {comp.epoch_number}
                 </p>
-                <p className="text-sm text-gray-500">Protein: {comp.protein}</p>
+                <p className="text-sm text-gray-500">Target Protein: {comp.target_protein}</p>
+                <p className="text-sm text-gray-500">Anti Target  Protein: {comp.anti_target_protein}</p>
               </div>
               <Link
                 href={`/leaderboard?epoch_number=${comp.epoch_number}`}

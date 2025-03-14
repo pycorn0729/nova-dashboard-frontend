@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-col items-center justify-center h-screen">
-          <div className="h-24 w-full bg-gray-200 fixed top-0 left-0">
+          <div className="h-20 w-full bg-gray-200 fixed top-0 left-0">
             <div className="flex items-center justify-between h-full px-10">
               <h1 className="text-2xl font-bold">NOVA Dashboard</h1>
               <div className="flex items-center justify-center gap-3">
