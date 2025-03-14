@@ -45,7 +45,7 @@ export default async function CompetitionList() {
               <tr key={index} className="hover:bg-gray-50">
                 <td className="px-6 py-4">
                   <div className="text-lg font-semibold text-gray-700">
-                    Epoch {comp.epoch_number}
+                    #{comp.epoch_number}
                   </div>
                 </td>
                 <td className="px-6 py-4">
