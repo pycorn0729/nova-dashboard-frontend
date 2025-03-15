@@ -28,6 +28,9 @@ export default async function CompetitionList() {
   const competitions = data;
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white">
+      <div className="text-center text-gray-500 italic mb-4">
+        🎨 "This is ugly, make beautify me!" - Our webpage at the beauty salon 💅✨
+      </div>
       <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">🏆 Competitions</h1>
       {competitions.length > 0 ? (
       

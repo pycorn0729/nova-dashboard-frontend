@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
       permanent: true,
     },
   ],
+  theme: {
+    colorScheme: 'light',
+    themeMode: 'light',
+  },
 };
 
 export default nextConfig;
