@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import ScrollToTop from "./components/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,11 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "NOVA Dashboard",
-  description: "NOVA Dashboard",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>NOVA Dashboard</title>
+        <meta name="description" content="NOVA Dashboard" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -40,6 +41,7 @@ export default function RootLayout({
           <div className="w-full h-full bg-dark">
             {children}
           </div>
+          <ScrollToTop />
           <div className="h-15 w-full bg-dark-500 fixed bottom-0 left-0">
             <div className="flex items-center justify-center h-full">
                 <Link href="https://github.com/the-nova-labs" target="_blank" className="text-gray-500 hover:text-gray-700 hover:underline flex items-center gap-2">
@@ -54,6 +56,7 @@ export default function RootLayout({
                 </Link>
             </div>
           </div>
+          
         </div>
       </body>
     </html>
