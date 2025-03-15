@@ -61,6 +61,7 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
         <thead className="bg-gray-50">
           <tr>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Rank</th>
+            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Uid</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Hotkey</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Block Number</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Molecule</th>
@@ -71,6 +72,7 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
           {leaderboard.map((entry: any, index: number) => (
             <tr key={index} className="hover:bg-gray-50">
               <td className="px-6 py-4 font-medium text-gray-900">#{index + 1}</td>
+              <td className="px-6 py-4 font-medium text-gray-900">{entry.uid}</td>
               <td className="px-6 py-4 font-medium text-gray-900">{entry.hotkey}</td>
               <td className="px-6 py-4">{entry.block_number}</td>
               <td className="px-6 py-4">
