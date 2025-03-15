@@ -1,3 +1,5 @@
+"use client";
+
 export default function ErrorView({error}: {error: string}) {
   return (
       <div className="max-w-[80%] mx-auto p-6 bg-red-100 border-2 border-red-400 rounded-lg shadow-lg">

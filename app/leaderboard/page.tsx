@@ -1,25 +1,6 @@
 import Link from "next/link";
 import ErrorView from "../components/ErrorView";
-
-const fetchLeaderboard = async (epoch: number) => {
-  try {
-    const res = await fetch(`http://209.126.9.130:9000/api/leaderboard/?epoch_number=${epoch}`, {
-      cache: "no-store",
-    });
-    if (!res.ok) {
-      throw new Error(res.statusText || "Failed to fetch leaderboard");
-    }
-    return {
-			data: await res.json(),
-			error: null
-    };
-  } catch (error: any) {
-    return {
-			data: null,
-			error: error.message
-		};
-  }
-};
+import { fetchLeaderboard } from "../services/competitionService";
 
 export default async function LeaderboardPage({searchParams}:{searchParams: Promise<{epoch_number?: string}>}) {
   const epochNumber = parseInt((await searchParams).epoch_number ?? '1');
