@@ -9,7 +9,7 @@ export default async function CompetitionList() {
   }
   const competitions = data;
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white">
+    <div className="max-w-[70%] mx-auto p-6 bg-white">
       <div className="text-center text-gray-500 italic mb-4">
         🎨 I'm like a potato with potential—just need a little polish! Help me go from 'meh' to 'wow'! 💅✨
       </div>
@@ -22,6 +22,8 @@ export default async function CompetitionList() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Epoch</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Target Protein</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Anti Target Protein</th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Uid</th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Hotkey</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Leaderboard</th>
             </tr>
           </thead>
@@ -41,6 +43,16 @@ export default async function CompetitionList() {
                 <td className="px-6 py-4">
                   <span className="rounded-lg bg-red-50 px-2 py-1 text-sm text-red-600">
                     {comp.anti_target_protein}
+                  </span>
+                </td>
+                <td className="px-6 py-4">
+                  <span className="rounded-lg bg-blue-50 px-2 py-1 text-sm text-blue-600">
+                    {comp.best_uid}
+                  </span>
+                </td>
+                <td className="px-6 py-4">
+                  <span className="rounded-lg bg-purple-50 px-2 py-1 text-sm text-purple-600">
+                    {comp.best_hotkey}
                   </span>
                 </td>
                 <td className="px-6 py-4">
