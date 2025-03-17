@@ -46,12 +46,12 @@ export default async function CompetitionList() {
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="rounded-lg bg-blue-50 px-2 py-1 text-sm text-blue-600">
+                  <span className="rounded-lg bg-blue-50 px-2 py-1 text-sm text-gray-900">
                     {comp.best_uid}
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="rounded-lg bg-purple-50 px-2 py-1 text-sm text-purple-600">
+                  <span className="rounded-lg bg-purple-50 px-2 py-1 text-sm text-gray-900">
                     {comp.best_hotkey}
                   </span>
                 </td>
