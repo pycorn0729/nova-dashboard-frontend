@@ -13,7 +13,7 @@ export default async function CompetitionList() {
       <div className="text-center text-gray-500 italic mb-4">
         🎨 I'm like a potato with potential—just need a little polish! Help me go from 'meh' to 'wow'! 💅✨
       </div>
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">🏆 Competitions</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">🏆 Nova Competitions</h1>
       {competitions.length > 0 ? (
       
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500 shadow-md rounded-lg overflow-hidden">
