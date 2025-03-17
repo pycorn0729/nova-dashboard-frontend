@@ -9,17 +9,19 @@ export default async function CompetitionList() {
   }
   const competitions = data;
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white">
+    <div className="max-w-[70%] mx-auto p-6 bg-white">
       <div className="text-center text-gray-500 italic mb-4">
         🎨 I'm like a potato with potential—just need a little polish! Help me go from 'meh' to 'wow'! 💅✨
       </div>
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">🏆 Competitions</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">🏆 Nova Competitions</h1>
       {competitions.length > 0 ? (
       
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500 shadow-md rounded-lg overflow-hidden">
           <thead className="bg-gray-50">
             <tr>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Epoch</th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Uid</th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Hotkey</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Target Protein</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Anti Target Protein</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Leaderboard</th>
@@ -28,10 +30,14 @@ export default async function CompetitionList() {
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
             {competitions.map((comp: any, index: number) => (
               <tr key={index} className="hover:bg-gray-50">
-                <td className="px-6 py-4">
-                  <div className="text-lg font-semibold text-gray-700">
+                <td className="px-6 py-4 font-medium text-gray-900">
                     #{comp.epoch_number}
-                  </div>
+                </td>
+                <td className="px-6 py-4 font-medium text-gray-900">
+                  {comp.best_uid}
+                </td>
+                <td className="px-6 py-4 font-medium text-gray-900">
+                  {comp.best_hotkey}
                 </td>
                 <td className="px-6 py-4">
                   <span className="rounded-lg bg-green-50 px-2 py-1 text-sm text-green-600">
