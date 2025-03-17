@@ -30,10 +30,8 @@ export default async function CompetitionList() {
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
             {competitions.map((comp: any, index: number) => (
               <tr key={index} className="hover:bg-gray-50">
-                <td className="px-6 py-4">
-                  <div className="text-lg font-semibold text-gray-700">
+                <td className="px-6 py-4 font-medium text-gray-900">
                     #{comp.epoch_number}
-                  </div>
                 </td>
                 <td className="px-6 py-4 font-medium text-gray-900">
                   {comp.best_uid}
