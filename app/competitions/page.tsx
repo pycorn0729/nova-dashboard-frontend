@@ -20,10 +20,10 @@ export default async function CompetitionList() {
           <thead className="bg-gray-50">
             <tr>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Epoch</th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Target Protein</th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Anti Target Protein</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Uid</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Hotkey</th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Target Protein</th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Anti Target Protein</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Leaderboard</th>
             </tr>
           </thead>
@@ -35,6 +35,12 @@ export default async function CompetitionList() {
                     #{comp.epoch_number}
                   </div>
                 </td>
+                <td className="px-6 py-4 font-medium text-gray-900">
+                  {comp.best_uid}
+                </td>
+                <td className="px-6 py-4 font-medium text-gray-900">
+                  {comp.best_hotkey}
+                </td>
                 <td className="px-6 py-4">
                   <span className="rounded-lg bg-green-50 px-2 py-1 text-sm text-green-600">
                     {comp.target_protein}
@@ -43,16 +49,6 @@ export default async function CompetitionList() {
                 <td className="px-6 py-4">
                   <span className="rounded-lg bg-red-50 px-2 py-1 text-sm text-red-600">
                     {comp.anti_target_protein}
-                  </span>
-                </td>
-                <td className="px-6 py-4">
-                  <span className="rounded-lg bg-blue-50 px-2 py-1 text-sm text-gray-900">
-                    {comp.best_uid}
-                  </span>
-                </td>
-                <td className="px-6 py-4">
-                  <span className="rounded-lg bg-purple-50 px-2 py-1 text-sm text-gray-900">
-                    {comp.best_hotkey}
                   </span>
                 </td>
                 <td className="px-6 py-4">
