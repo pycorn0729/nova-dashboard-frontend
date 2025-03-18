@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ErrorView from "../components/ErrorView";
 import { fetchLeaderboard } from "../services/competitionService";
+import {EPOCH_IN_BLOCKS} from "../utils/config";
 
 export default async function LeaderboardPage({searchParams}:{searchParams: Promise<{epoch_number?: string}>}) {
   const epochNumber = parseInt((await searchParams).epoch_number ?? '1');
@@ -10,6 +11,9 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
   }
   const {leaderboard, competition } = data;
   
+  const start_block = epochNumber * EPOCH_IN_BLOCKS;
+  const end_block = start_block + EPOCH_IN_BLOCKS;
+
   return (
     <div className="max-w-[80%] mx-auto p-6 bg-white">
       <div className="mb-8">
@@ -24,15 +28,23 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
           <div className="w-32"></div>
         </div>
         <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2 justify-center">
+          <div className="flex items-center gap-4 justify-center">
+            <div className="flex items-center gap-2">
               <span className="font-medium text-gray-700">Target Protein:</span>
               <span className="rounded-lg bg-green-50 px-3 py-1 text-sm font-medium text-green-600">
                 {competition.target_protein}
               </span>
+            </div>
+            <div className="flex items-center gap-2">
               <span className="font-medium text-gray-700">Anti Target Protein:</span>
               <span className="rounded-lg bg-red-50 px-3 py-1 text-sm font-medium text-red-600">
                 {competition.anti_target_protein}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-medium text-gray-700">Block Range:</span>
+              <span className="rounded-lg bg-blue-50 px-3 py-1 text-sm font-medium text-blue-600">
+                {start_block} - {end_block}
               </span>
             </div>
           </div>
@@ -44,7 +56,7 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Rank</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Uid</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Hotkey</th>
-            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Block Number</th>
+            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Elapsed Blocks</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Molecule</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Max Score</th>
           </tr>
@@ -55,7 +67,7 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
               <td className="px-6 py-4 font-medium text-gray-900">#{index + 1}</td>
               <td className="px-6 py-4 font-medium text-gray-900">{entry.uid}</td>
               <td className="px-6 py-4 font-medium text-gray-900">{entry.hotkey}</td>
-              <td className="px-6 py-4">{entry.block_number}</td>
+              <td className="px-6 py-4">{entry.block_number - start_block}</td>
               <td className="px-6 py-4">
                 <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
                   {entry.molecule}
