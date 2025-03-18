@@ -16,7 +16,7 @@ export default async function CompetitionList() {
   const remaining_time = remaining_blocks * BLOCK_IN_SECONDS;
 
   return (
-    <div className="max-w-[70%] mx-auto p-6 bg-white">
+    <div className="max-w-[80%] mx-auto p-6 bg-white">
       <div className="text-center text-gray-500 italic mb-4">
         🎨 I'm like a potato with potential—just need a little polish! Help me go from 'meh' to 'wow'! 💅✨
       </div>
@@ -59,6 +59,7 @@ export default async function CompetitionList() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Epoch</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Uid</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Hotkey</th>
+              <th scope="col" className="px-6 py-4 font-medium text-gray-900">Best Score (Elapsed Blocks)</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Target Protein</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Anti Target Protein</th>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Leaderboard</th>
@@ -71,10 +72,14 @@ export default async function CompetitionList() {
                     #{comp.epoch_number}
                 </td>
                 <td className="px-6 py-4 font-medium text-gray-900">
-                  {comp.best_uid}
+                  {comp.best_submission.uid}
                 </td>
                 <td className="px-6 py-4 font-medium text-gray-900">
-                  {comp.best_hotkey}
+                  {comp.best_submission.hotkey}
+                </td>
+                <td className="px-6 py-4 font-medium text-gray-900">
+                  <span className="font-semibold text-green-600">{comp.best_submission.score.toFixed(3)}</span> {" "}
+                  <span className="text-gray-500">({comp.best_submission.block_number - comp.epoch_number * EPOCH_IN_BLOCKS} blocks)</span>
                 </td>
                 <td className="px-6 py-4">
                   <span className="rounded-lg bg-green-50 px-2 py-1 text-sm text-green-600">

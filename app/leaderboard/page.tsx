@@ -56,9 +56,9 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Rank</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Uid</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Hotkey</th>
+            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Score</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Elapsed Blocks</th>
             <th scope="col" className="px-6 py-4 font-medium text-gray-900">Molecule</th>
-            <th scope="col" className="px-6 py-4 font-medium text-gray-900">Max Score</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -67,14 +67,14 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
               <td className="px-6 py-4 font-medium text-gray-900">#{index + 1}</td>
               <td className="px-6 py-4 font-medium text-gray-900">{entry.uid}</td>
               <td className="px-6 py-4 font-medium text-gray-900">{entry.hotkey}</td>
+              <td className="px-6 py-4">
+                <span className="font-semibold text-green-600">{entry.max_score.toFixed(3)}</span>
+              </td>
               <td className="px-6 py-4">{entry.block_number - start_block}</td>
               <td className="px-6 py-4">
                 <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
                   {entry.molecule}
                 </span>
-              </td>
-              <td className="px-6 py-4">
-                <span className="font-semibold text-green-600">{entry.max_score}</span>
               </td>
             </tr>
           ))}
