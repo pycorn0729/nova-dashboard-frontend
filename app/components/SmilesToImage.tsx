@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as SmilesDrawer from "smiles-drawer";
 
-const SmilesToImage = ({ smiles }: { smiles: string }) => {
+const SmilesToImage = ({ smiles, width = 300, height = 300 }: { smiles: string, width?: number, height?: number }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +12,7 @@ const SmilesToImage = ({ smiles }: { smiles: string }) => {
     if (smiles && canvasRef.current) {
       setIsLoading(true);
       try {
-        const options = { width: 300, height: 300 };
+        const options = { width, height };
         const drawer = new SmilesDrawer.Drawer(options);
         
         SmilesDrawer.parse(smiles, (tree: any) => {
@@ -29,7 +29,7 @@ const SmilesToImage = ({ smiles }: { smiles: string }) => {
     }
   }, [smiles]);
 
-  if (error) {
+  if (!smiles || error) {
     return <div className="text-red-500">Invalid SMILES string: {error}</div>;
   }
 

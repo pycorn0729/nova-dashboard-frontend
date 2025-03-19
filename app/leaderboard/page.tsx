@@ -72,9 +72,9 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
               </td>
               <td className="px-6 py-4">{entry.block_number - start_block}</td>
               <td className="px-6 py-4">
-                <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                  {entry.molecule}
-                </span>
+                <Link href={`/molecule?molecule=${encodeURIComponent(entry.molecule)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md bg-blue-50 px-2 py-1 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 hover:bg-blue-100 transition-colors">
+                  <span>{entry.molecule}</span>                  
+                </Link>
               </td>
             </tr>
           ))}
