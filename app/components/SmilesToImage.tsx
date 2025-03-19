@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import * as SmilesDrawer from "smiles-drawer";
+const SmilesDrawer = require("smiles-drawer");
 
 const SmilesToImage = ({ smiles, width = 300, height = 300 }: { smiles: string, width?: number, height?: number }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
