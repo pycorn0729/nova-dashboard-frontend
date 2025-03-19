@@ -15,7 +15,7 @@ export default async function Molec({searchParams}:{searchParams: Promise<{molec
       <div className="mb-8">
 
         <div className="mt-6 bg-white rounded-lg shadow-md p-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Molecule Details</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">🚀 Molecule Details</h1>
           
           <div className="flex flex-col gap-4 w-full">
           <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
