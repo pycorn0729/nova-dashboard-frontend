@@ -30,16 +30,42 @@ export default async function LeaderboardPage({searchParams}:{searchParams: Prom
         <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
           <div className="flex items-center gap-4 justify-center">
             <div className="flex items-center gap-2">
-              <span className="font-medium text-gray-700">Target Protein:</span>
-              <span className="rounded-lg bg-green-50 px-3 py-1 text-sm font-medium text-green-600">
-                {competition.target_protein}
-              </span>
+              <span className="font-medium text-gray-700">Target Proteins:</span>
+              <div className="relative group">
+                <button className="rounded-lg bg-green-50 px-3 py-1 text-sm font-medium text-green-600 hover:bg-green-100 transition-colors flex items-center gap-1">
+                  {competition.target_proteins.length} Targets
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="absolute z-10 hidden group-hover:block mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200">
+                  <div className="py-1 max-h-48 overflow-y-auto">
+                      {competition.target_proteins.map((protein: string) => (
+                        <div className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                          {protein}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <span className="font-medium text-gray-700">Anti Target Protein:</span>
-              <span className="rounded-lg bg-red-50 px-3 py-1 text-sm font-medium text-red-600">
-                {competition.anti_target_protein}
-              </span>
+              <div className="relative group">
+                <button className="rounded-lg bg-red-50 px-3 py-1 text-sm font-medium text-red-600 hover:bg-red-100 transition-colors flex items-center gap-1">
+                  {competition.anti_target_proteins.length} Anti Targets
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="absolute z-10 hidden group-hover:block mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200">
+                  {competition.anti_target_proteins.map((protein: string) => (
+                    <div className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                      {protein}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <span className="font-medium text-gray-700">Block Range:</span>

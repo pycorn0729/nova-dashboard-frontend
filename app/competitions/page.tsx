@@ -82,14 +82,40 @@ export default async function CompetitionList() {
                   <span className="text-gray-500">({comp.best_submission.block_number - comp.epoch_number * EPOCH_IN_BLOCKS} blocks)</span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="rounded-lg bg-green-50 px-2 py-1 text-sm text-green-600">
-                    {comp.target_protein}
-                  </span>
+                  <div className="relative group">
+                    <button className="rounded-lg bg-green-50 px-3 py-1 text-sm font-medium text-green-600 hover:bg-green-100 transition-colors flex items-center gap-1">
+                      {comp.target_proteins.length} Targets
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div className="absolute z-10 hidden group-hover:block mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200">
+                      <div className="py-1 max-h-48 overflow-y-auto">
+                        {comp.target_proteins.map((protein: string) => (
+                          <div className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                            {protein}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="rounded-lg bg-red-50 px-2 py-1 text-sm text-red-600">
-                    {comp.anti_target_protein}
-                  </span>
+                  <div className="relative group">
+                    <button className="rounded-lg bg-red-50 px-3 py-1 text-sm font-medium text-red-600 hover:bg-red-100 transition-colors flex items-center gap-1">
+                      {comp.anti_target_proteins.length} Anti Targets
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div className="absolute z-10 hidden group-hover:block mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200">
+                      {comp.anti_target_proteins.map((protein: string) => (
+                        <div className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                          {protein}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </td>
                 <td className="px-6 py-4">
                   <Link
