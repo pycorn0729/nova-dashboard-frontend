@@ -53,7 +53,7 @@ export default async function CompetitionList() {
       </div>
       {competitions.length > 0 ? (
       
-        <table className="w-full border-collapse bg-white text-left text-sm text-gray-500 shadow-md rounded-lg overflow-hidden">
+        <table className="w-full border-collapse bg-white text-left text-sm text-gray-500 shadow-md rounded-lg">
           <thead className="bg-gray-50">
             <tr>
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">Epoch</th>
